@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      #slider {
+        position: absolute;
+        top: 20px;
+        left: 20px; 
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <input id="slider" type="range" min="-1" max="1" step="0.05" value="0">
+    <script src="kinetic-v5.1.0.min.js"></script>
+    <script defer="defer">
+      var imageObj = new Image();
+      imageObj.onload = function() {
+        var stage = new Kinetic.Stage({
+          container: 'container',
+          width: 578,
+          height: 300
+        });
+        var layer = new Kinetic.Layer();
+        darth = new Kinetic.Image({
+          x: 10,
+          y: 10,
+          image: imageObj,
+          draggable: true
+        });
+      
+        layer.add(darth);
+        stage.add(layer);
+
+        darth.cache();
+        darth.filters([Kinetic.Filters.Brighten]);
+        layer.draw(); 
+        
+        var slider = document.getElementById('slider'); 
+        slider.onchange = function() {
+          darth.brightness(slider.value);
+          layer.batchDraw();    
+        };
+      };
+      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+    </script>
+  </body>
+</html>      

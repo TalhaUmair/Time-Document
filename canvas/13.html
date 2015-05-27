@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="kinetic-v5.1.0.min.js"></script>
+    <script defer="defer">
+      var stage = new Kinetic.Stage({
+        container: 'container',
+        width: 578,
+        height: 200
+      });
+
+      var layer = new Kinetic.Layer();
+
+      var circle = new Kinetic.Circle({
+        x: stage.width()/2,
+        y: stage.height()/2 + 10,
+        radius: 70,
+        fill: 'red',
+        stroke: 'black',
+        strokeWidth: 4
+      });
+      
+      var text = new Kinetic.Text({
+        text: '',
+        fontFamily: 'Calibri',
+        fontSize: 24,
+        fill: 'black',
+        x: 10,
+        y: 10
+      });
+
+      circle.on('click', function(evt) {
+        console.log(circle)
+        text.text('you clicked on the circle!');
+        layer.draw();
+      });
+
+      layer.add(circle).add(text);
+      stage.add(layer);
+
+      // simulate click on circle
+      circle.fire('click');
+    </script>
+  </body>
+</html>      

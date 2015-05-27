@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="kinetic-v5.1.0.min.js"></script>
+    <script defer="defer">
+      function writeMessage(message) {
+        text.setText(message);
+        layer.draw();
+      }
+      
+      var stage = new Kinetic.Stage({
+        container: 'container',
+        width: 578,
+        height: 200
+      });
+      
+      var layer = new Kinetic.Layer();
+
+      var text = new Kinetic.Text({
+        x: 10,
+        y: 10,
+        fontFamily: 'Calibri',
+        fontSize: 24,
+        text: '',
+        fill: 'black'
+      });
+
+      var star = new Kinetic.Star({
+        x: stage.width()/2,
+        y: stage.height()/2,
+        numPoints: 7,
+        innerRadius: 50,
+        outerRadius: 70,
+        fill: 'red',
+        stroke: 'black',
+        strokeWidth: 4,
+        hitFunc: function(context) {
+          context.beginPath();
+          context.arc(0, 0, this.getOuterRadius() + 10, 0, Math.PI * 2, true);
+          context.closePath();
+          context.fillStrokeShape(this);
+        }
+      });
+
+      star.on('mouseover', function() {
+        writeMessage('Mouseover star');
+      });
+      star.on('mouseout', function() {
+        writeMessage('Mouseout star');
+      });
+      star.on('mousedown', function() {
+        writeMessage('Mousedown star');
+      });
+      star.on('mouseup', function() {
+        writeMessage('Mouseup star');
+      });
+
+      layer.add(star);
+      layer.add(text);
+      stage.add(layer);
+   
+    </script>
+  </body>
+</html>      

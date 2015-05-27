@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset=UTF-8>
+
+    <!-- Metadata -->
+
+
+
+    <title>Video Effects Demo</title>
+    <script type="text/javascript" src="prefixfree.min.js"></script>
+</head>
+<body>
+    <div id='wrap'>
+        <div id="content">
+            <div id='demo'>
+                <section class="container">
+                    <script type='text/javascript' src='frameGrabber.js'></script>
+                    <script type="text/javascript" src="jsmanipulate.min.js"></script>
+                    <script type="text/javascript" src="video-effects-demo.js"></script>
+                    <link rel='stylesheet' href='video-effects-demo.css' type='text/css' media='all'>
+                    <div>
+                        <video class='box' id="video" controls autoplay>
+                           <!-- <source src="/media/sintel.ogg" type='video/ogg; codecs="theora, vorbis"'>-->
+                            <source src="video.mp4" type='video/mp4'>
+                           <!-- <source src="/media/sintel-480x208.mp4" type='video/mp4' media="handheld">-->
+                        </video>
+                        <canvas class='box' id="canvas"></canvas>
+                        <form>
+                            <fieldset>
+                                <label>Select a video effect in the list below:</label>
+                                <div id="effects">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+
+
+        </div>
+        
+    </div>
+    <!-- Code Highlighting -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+
+</body>

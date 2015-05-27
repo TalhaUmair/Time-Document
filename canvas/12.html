@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="kinetic-v5.1.0.min.js"></script>
+    <script defer="defer">
+      var stage = new Kinetic.Stage({
+        container: 'container',
+        width: 578,
+        height: 200
+      });
+
+      var layer = new Kinetic.Layer();
+
+      var star = new Kinetic.Star({
+        innerRadius: 50,
+        outerRadius: 70,
+        fill: 'red',
+        stroke: 'black',
+        strokeWidth: 5,
+        numPoints: 20,
+        x: 200,
+        y: 100,
+        draggable: true,
+        shadowOffset: 5,
+        shadowColor: 'black',
+        shadowBlur: 5,
+        shadowOpacity: 0.5
+      });
+
+      layer.add(star);
+      stage.add(layer);
+
+      star.cache({
+        x: -100,
+        y: -100,
+        width: 200,
+        height: 200,
+        drawBorder: true
+      }).offset({
+        x: 100,
+        y: 100
+      });
+      
+      layer.draw();
+    </script>
+  </body>
+</html>      
