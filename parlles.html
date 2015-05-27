@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js">
+</script>
+<script>
+$(document).ready(function(){
+   // cache the window object
+   $window = $(window);
+ 
+   $('section[data-type="background"]').each(function(){
+     // declare the variable to affect the defined data-type
+     var $scroll = $(this);
+                     
+      $(window).scroll(function() {
+        // HTML5 proves useful for helping with creating JS functions!
+        // also, negative value because we're scrolling upwards                            
+        var yPos = -($window.scrollTop() / $scroll.data('speed'));
+         
+        // background position
+        var coords = '50% '+ yPos + 'px';
+ 
+        // move the background
+        $scroll.css({ backgroundPosition: coords });   
+      }); // end window scroll
+   });  // end section function
+}); // close out script
+
+/* Create HTML5 element for IE */
+document.createElement("section");
+</script>
+    <title>T A L H A</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            text-align:center;
+        }
+		img{
+		max-width:100%;
+		}
+#intro{
+ background: url(backGround.JPG) fixed;
+ height: auto;  
+                margin: 0 auto; 
+                width: 100%; 
+                position: relative; 
+              <!--   box-shadow: 0 0 50px rgba(0,0,0,0.8);
+                padding: 100px 0; -->
+}
+        .green {
+            background: green;
+            min-height: 800px;
+            max-height: 1000px;
+        }
+
+        .red {
+            background: red;
+            min-height: 800px;
+            max-height: 1000px;
+        }
+        .yellow {
+            background: yellow;
+            min-height: 800px;
+            max-height: 1000px;
+        }
+        .gray {
+            background: gray;
+            min-height: 800px;
+            max-height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <section id="home" data-speed="4" data-type="background">
+        <div class="yellow">
+            Again Smile Please
+        </div>
+    </section>
+
+	 <section id="intro" data-speed="6" data-type="background">
+        <div style="margin:50px auto;">
+            smile please
+        </div>
+    </section>
+	
+     <section id="about" data-speed="2" data-type="background">
+        <div class="gray">
+      Now Again Smile Please
+        </div>
+    </section>
+
+</body>
+</html>

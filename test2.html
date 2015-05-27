@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Readonly Input Box</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+</head>
+
+<body>
+<h1>Readonly Input Box</h1>
+
+<label>My Test Label 1</label>
+<input type="checkbox" class="input_control" value="test1"/>
+<input type="text" name="test1" />
+
+<br />
+
+<label>My Test Label 2</label>
+<input type="checkbox" class="input_control" value="test2"/>
+<input type="text" name="test2" />
+
+<br />
+
+<label>My Test Label 3</label>
+<input type="checkbox" class="input_control" value="test3"/>
+<input type="text" name="test3" />
+
+<label>male</label>
+<input type="checkbox" class="input_control"  value="group1">
+
+<label>Female</label>
+<input type="checkbox" class="input_control" value="group1">
+
+<input type="checkbox"  name="group1">
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.input_control').attr('checked', true);
+		$('.input_control').click(function(){
+		var itr = 0;
+                var groupCount = 0;
+		$("input[value='group1']").each(function(){
+                    groupCount++;
+		if(this.checked){
+			itr++;
+		}
+		});
+			if(itr == groupCount){
+				$('input[name='+ $(this).attr('value')+']').attr('disabled', false);
+			}else{
+                            $('input[name='+ $(this).attr('value')+']').attr('disabled', true);	
+			}
+		});
+	});
+</script>
+</body>
+</html>

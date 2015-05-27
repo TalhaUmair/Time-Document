@@ -1,0 +1,55 @@
+<style>
+    .tooltip {
+        display: inline;
+        position: relative;
+    }
+
+    [data-title]:hover:after {
+        background: #333;
+        background: rgba(0,0,0,.8);
+        border-radius: 5px;
+        bottom: 20px;
+        color: #fff;
+        content: attr(data-title);
+        /*left: 50%;*/
+        padding: 5px 15px;
+        position: absolute;
+        z-index: 98;
+        width: 100%;
+        text-decoration: none;
+        font-size:10px;
+    }
+
+    [data-title]:hover:before {
+        border: solid;
+        border-color: #333 transparent;
+        border-width: 6px 6px 0 6px;
+        bottom: 14px;
+        content: "";
+        left: 50%;
+        position: absolute;
+        z-index: 99;
+    }
+    [data-title] {
+        position: relative;
+    }
+
+    .tip {
+        position:relative;
+        margin-top:300px;
+    }
+</style>
+
+<div class="tip">
+    <a href="#" title="Add to cart">CART</a>
+</div>
+
+<script>
+    var titled = document.querySelectorAll('[title]');
+    var numTitled = titled.length;
+
+    for (i = 0; i < numTitled; i++) {
+        titled[i].setAttribute('data-title', titled[i].title);
+        titled[i].removeAttribute('title');
+    }
+</script>

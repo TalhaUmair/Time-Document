@@ -1,0 +1,31 @@
+<!Doctype html>
+<html>
+<head>
+    <title>jQuery Learnig</title>
+</head>
+<body>
+    <form>
+        <input type="checkbox" name="Apple">Apple<br />
+        <input type="checkbox" name="Mango">Mango<br />
+        <input type="checkbox" name="Orange">Orange<br />
+        <input type="checkbox" name="Banana">Banana<br />
+    </form>
+    <br />
+    <p id="Test"></p>
+
+    <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            function CounteTest() {
+                var count = $("form input:checked").length;
+                $("#Test").text("You Like:" + count + "No off food")
+            }
+
+            CounteTest();
+            $(":checkbox").click(CounteTest);
+        });
+    </script>
+
+</body>
+</html>

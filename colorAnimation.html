@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Color Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: red;
+            -webkit-animation: myfirst 50s linear infinite; /* Chrome, Safari, Opera */
+            animation: myfirst 50s linear infinite;
+        }
+
+        /* Standard syntax */
+        @keyframes myfirst {
+            0% {
+                background: #000000;
+            }
+
+            10% {
+                background: #FF0000;
+            }
+
+            20% {
+                background: #00FF00;
+            }
+
+            30% {
+                background: #FFFF00;
+            }
+            40% {
+                background: #00FFFF;
+            }
+            50% {
+                background: #FF00FF;
+            }
+            60% {
+                background: #C0C0C0;
+            }
+            70% {
+                background: #FFFFFF;
+            }
+
+            100% {
+                background: #000000;
+            }
+        }
+
+        @-webkit-keyframes myfirst {
+            0% {
+                background: #000000;
+            }
+
+            10% {
+                background: #FF0000;
+            }
+
+            20% {
+                background: #00FF00;
+            }
+
+            30% {
+                background: #FFFF00;
+            }
+
+            40% {
+                background: #00FFFF;
+            }
+
+            50% {
+                background: #FF00FF;
+            }
+
+            60% {
+                background: #C0C0C0;
+            }
+
+            70% {
+                background: #FFFFFF;
+            }
+
+            100% {
+                background: #000000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
